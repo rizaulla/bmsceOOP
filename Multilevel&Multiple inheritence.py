@@ -124,3 +124,28 @@ print(b.show())
 print(b.Milage())
 print(b.speed())
 
+
+#MRO
+
+class person:
+    def display(self):
+        print("Person")
+
+class father(person):
+    def display(self):
+        print("father")
+
+class mother(person):
+    def display(self):
+        print("Mother")
+
+class Child(mother,father):
+    pass
+
+
+p1=Child()
+p1.display()
+print(Child.mro())
+print(Child.__mro__)
+        
+
