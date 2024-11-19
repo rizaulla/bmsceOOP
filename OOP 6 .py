@@ -81,6 +81,44 @@ while True:
 
 # In[ ]:
 
+#Myexecution
+class wrongage(Exception):
+    def __init__(self,message="Age cannot be negative"):
+        self.message=message
+        super().__init__(self,message)
+
+class Invalidage(Exception):
+    def __init__(self,message="sons and FAthers age cannot be same"):
+        self.message=message
+        super().__init__(self,message)
+    
+class Father:
+    def __init__(self,age):
+        if age < 0:
+            raise wrongage()
+        self.age = age
+
+class son(Father):
+    def __init__(self, fathers_age, sons_age):
+        super().__init__(fathers_age) 
+        if sons_age < 0:
+            raise wrongage()
+        self.sonsage = sons_age
+        
+        if sons_age >= fathers_age:
+            raise Invalidage()
+        self.sons_age = sons_age
+        print("Son's age is:", self.sons_age)
+
+try:
+    fa = Father(30)  
+    So = son(30,122) 
+    print(fa.age)
+    print(fa.age,So.sons_age)
+except (wrongage,Invalidage) as e:
+   print(e)
+    
+
 
 
 
