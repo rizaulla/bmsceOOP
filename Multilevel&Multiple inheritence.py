@@ -146,6 +146,6 @@ class Child(mother,father):
 p1=Child()
 p1.display()
 print(Child.mro())
-print(Child.__mro__)
+print(Child.__mro__) 
         
 
